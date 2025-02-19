@@ -127,3 +127,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL="/media/"
 MEDIA_ROOT=BASE_DIR/"media"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RAZORPAY_ID = "Enter your Razorpay id here"
+RAZORPAY_SECRET = "Enter your Razorpay secret here"

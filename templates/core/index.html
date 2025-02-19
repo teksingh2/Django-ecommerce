@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {%load static%}
+{% load  cart_template_tag %}
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -53,7 +54,8 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'orderlist' %}">Cart&nbsp;&nbsp;
+            <div style="color:red;">{{request.user | cart_item_count }}</div>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -412,8 +414,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Products</h2>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -439,6 +440,7 @@
                   <div class="portfolio-info">
                     <h4><a href="portfolio-details.html" title="More Details">{{ product.name }}</a></h4>
                     <p>{{ product.desc }}</p>
+                    <a href="{% url 'product_desc' product.pk %}" class="btn btn-dark">View More</a>
                   </div>
                 </div>
               </div> <!-- End Portfolio Item -->
